@@ -2,7 +2,7 @@
 // running 1280x768 disp at 60Hz, with reduced blanking
 // clock is aprox 68.25 Mhz(PLL on screen with match to this)
 
-module First (input wire clk, input wire rst, output reg vga_hs, output reg vga_vs, output wire vga_r, output wire vga_g, output wire vga_b);
+module VGAtst (input wire clk, input wire rst, output reg vga_hs, output reg vga_vs, output wire vga_r, output wire vga_g, output wire vga_b);
 
 wire clk_pixel;
 wire locked;

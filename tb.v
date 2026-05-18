@@ -1,25 +1,31 @@
 `timescale 1ns/1ns
-`include "computer.v"
+//`include "computer.v"
 
 module tb();
     reg rst=0;
     wire clk;
     clock see(clk);
-    computer coa(clk,rst);
+	 wire clkb=0;
+	 wire [15:0] addr_b=0;
+	 wire [15:0] data_b=0;
+	 wire we = 0;
+	 wire [15:0] val;
+    computer coa(clk,rst,clkb,addr_b,data_b,we,val);
     initial begin
         rst=0;
         #12;    
         rst = 1;
         #450000;
-        $finish;
+		  $stop;
+        //$finish;
     end
 
   initial begin
-    $dumpfile("dump.vcd");  
-    $dumpvars(0, tb);   
-    $dumpvars(0, tb.coa.RL);      
+    //$dumpfile("dump.vcd");  
+    //$dumpvars(0, tb);   
+    //$dumpvars(0, tb.coa.RL);      
   end
-endmodule;
+endmodule
 
 module clock(output reg CLK);
     initial begin
